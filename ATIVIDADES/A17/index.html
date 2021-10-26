@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário</title>
+</head>
+
+<!--STYLES--> 
+<link rel = "stylesheet" href="style.css">
+
+<!--FONTS--> 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;600&display=swap" rel="stylesheet">
+<body>
+<form>  
+    <fieldset>
+        <div> 
+        <h2>FORMULÁRIO</h2>
+        <label for="fname">Nome:</label><br>
+        <input type="text" id="fname" name="fname" placeholder="Digite seu nome:">
+        <br><br>
+        <label for="snome">Sobrenome:</label><br>
+        <input type="text" id="snome" name="snome"  placeholder="Digite seu sobrenome:">
+        <br><br>
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" maxlength="50" autocomplete="off"  placeholder="Digite seu e-mail:">
+        <br><br>
+        <label for="tel">Telefone/Celular:</label>
+        <input type="text" id="tel" name="tel" placeholder="(00) 00000-0000" pattern="(\([0-9]{2}\))\s([9]{1})?([0-9]{4})-([0-9]{4})" data-js="tel">
+        <br><br>
+        <label for="idCpf">CPF:</label><br>
+        <input type="text" id="idCpf" name="cpf" placeholder="000.000.000-00" autocomplete="off" data-js="cpf" required>
+        <br><br>
+        <label for="idCpf">CEP:</label><br>
+        <input type="text" id="idCep" name="cep" placeholder="00000-00" autocomplete="off" data-js="cep" required>
+        <br><br>
+    </fieldset>
+    <div class="ae">
+    <input type="submit" id="enviar" value="Enviar">
+    <input type="reset" id="apagar" value="Apagar">
+</div>
+</div>
+</form>
+<script src="./main.js"></script>
+</body>
+</html>
