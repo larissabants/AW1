@@ -3,6 +3,7 @@ const fs = require ('fs')
 console.log(1)
 
 //callback
+
 /*
 fs.readFile('./in1.txt', (err, contents) => {
     fs.readFile('./in2.txt', (err2, contents2) => {
