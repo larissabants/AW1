@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro CEP</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="container">
+        <h1>CADASTRO DE CEP</h1>
+        <h5>Digite o seu CEP para cadastrar o endereço!</h5>
+        <div class="campos">
+            <label for="cep">CEP: </label><input type="text" name="cep" />
+            <label for="logradouro">logradouro: </label> <input type="text" name="logradouro" readonly />
+            <label for="bairro">Bairro: </label> <input type="text" name="bairro" readonly />
+            <label for="city">Cidade: </label> <input type="text" name="city" readonly />
+            <label for="uf">Estado: </label> <input type="text" name="uf" readonly />
+            <label for="ddd">DDD: </label> <input type="text" name="ddd" readonly />
+        </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        const inputCep = document.querySelector('[name=cep]')
+        const inputCity = document.querySelector('[name=city]')
+        const inputLogr = document.querySelector('[name=logradouro]')
+        const inputBairro = document.querySelector('[name=bairro]')
+        const inputUF = document.querySelector('[name=uf]')
+        const inputDdd = document.querySelector('[name=ddd]')
+
+        inputCep.addEventListener('blur', event => {
+            let cep = event.target.value;
+            //Criar uma promise para receber os dados
+            axios.get(`https://viacep.com.br/ws/${cep}/json/`)
+                //parametro resposta recebe
+                .then(response => {
+                    inputCity.value = response.data.localidade
+                    inputUF.value = response.data.uf
+                    inputLogr.value = response.data.logradouro
+                    inputBairro.value = response.data.bairro
+                    inputDdd.value = response.data.ddd
+                })
+                .catch(error => console.log(error))
+        })
+    </script>
+
+<footer>
+    Larissa Barros dos Santos - 313 - AW1 &#169 2021
+</footer>
+
+</body>
+
+</html>
